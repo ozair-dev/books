@@ -1,0 +1,53 @@
+body{
+	background-color: #29abe3;
+	font-family: sans-serif;
+}
+form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.go_home{
+	display: block;
+	margin: 0 auto;
+	width: 100px;
+	padding: 10px;
+	border-radius: 10px;
+	border: none;
+	color: white;
+	background-color: #0046b8;
+	text-decoration: none;
+}
+.go_home{
+	outline: none;
+}
+.title{
+	color: #e012d3;
+	font-size: 50px;
+}
+input{
+	border: 3px solid #ff3de5;
+	padding: 10px;
+	width: 50vw;
+	border-radius: 10px;
+}
+.save_button{
+	color: white;
+	font-size: 20px;
+	display: block;
+	margin:  auto;
+	background-color: #16a600;
+	width: 200px;
+	height: 50px;
+	border-radius: 10px;
+	border: none;
+}
+.save_button:active{
+	background-color: #00ba1c;
+}
+.save_button:focus{
+	outline: none;
+}
+input:focus{
+	outline: none;
+}
