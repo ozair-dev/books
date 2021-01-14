@@ -22,14 +22,16 @@ export default class Home extends React.Component{
 		})
 	}
 	handleDelete = (id)=>{
-		let data = this.state.data;
-		let index = data.findIndex(doc=>doc._id==id)
-		let temp = data.slice(0,index)
-		temp = temp.concat(data.slice(index+1))
-		axios.post("https://ozbookapi.herokuapp.com/delete", {_id: id}).then(res=>{
-			if(res.data==="Done") return this.setState({data: temp})
-			if(!this.state.data[0]) return this.setState({altHomeTitle: "No Books To Show"})
-		})
+		if (window.confirm('Are you sure you wish to delete this book?')){
+			let data = this.state.data;
+			let index = data.findIndex(doc=>doc._id===id)
+			let temp = data.slice(0,index)
+			temp = temp.concat(data.slice(index+1))
+			axios.post("https://ozbookapi.herokuapp.com/delete", {_id: id}).then(res=>{
+				if(res.data==="Done") return this.setState({data: temp})
+				if(!this.state.data[0]) return this.setState({altHomeTitle: "No Books To Show"})
+			})
+		}
 	}
 
 	render(){

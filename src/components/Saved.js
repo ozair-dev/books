@@ -3,13 +3,15 @@ import Card from "./Card"
 import axios from 'axios'
 import './card.css'
 import {Link,  useHistory} from "react-router-dom"
-export default function(props){
+export default function Saved(props){
 	let history = useHistory();
 	const handleClick = (id)=>{
-		axios.post("https://ozbookapi.herokuapp.com/delete", {_id: id})
-		.then(res=>{
-			history.push("/")
-		})
+		if (window.confirm('Are you sure you wish to delete this book?')) {
+			axios.post("https://ozbookapi.herokuapp.com/delete", {_id: id})
+			.then(res=>{
+				history.push("/")
+			})
+		}
 	}
 	return (
 		<div style={{display: 'flex', 'flexDirection':'column', alignItems: 'center'}} >

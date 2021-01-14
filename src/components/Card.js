@@ -1,7 +1,7 @@
 import React from 'react'
 import "./card.css"
 import {Link} from 'react-router-dom'
-export default function(props){
+export default function Card(props){
 	return (
 		<div className='card' >
 			<h2 className='book_title'>{props.data.name}</h2>
