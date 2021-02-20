@@ -34,7 +34,7 @@ export default class Form extends React.Component{
 		}
 		if(this.props.location.state){
 			data._id = this.props.location.state._id
-			axios.put("https://ozbookapi.herokuapp.com/update", data)
+			axios.put("/update", data)
 			.then(res=>{
 				this.props.history.push({
 					pathname: '/saved',
@@ -43,7 +43,7 @@ export default class Form extends React.Component{
 			})
 		}else{
 			
-			axios.post("https://ozbookapi.herokuapp.com/create", data)
+			axios.post("/create", data)
 			.then(res=>{
 				this.props.history.push({
 					pathname: '/saved',

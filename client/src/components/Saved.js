@@ -7,7 +7,7 @@ export default function Saved(props){
 	let history = useHistory();
 	const handleClick = (id)=>{
 		if (window.confirm('Are you sure you wish to delete this book?')) {
-			axios.post("https://ozbookapi.herokuapp.com/delete", {_id: id})
+			axios.post("/delete", {_id: id})
 			.then(res=>{
 				history.push("/")
 			})

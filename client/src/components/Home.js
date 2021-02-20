@@ -15,7 +15,7 @@ export default class Home extends React.Component{
 
 	componentDidMount(){
 		axios
-		.get("https://ozbookapi.herokuapp.com/all")
+		.get("/all")
 		.then(res=>{
 			this.setState({data: res.data.sort((a,b)=>a.name.toLowerCase()>b.name.toLowerCase()?1:-1)})
 			 if(!this.state.data[0]) return this.setState({altHomeTitle: "No Books To Show"})
@@ -27,7 +27,7 @@ export default class Home extends React.Component{
 			let index = data.findIndex(doc=>doc._id===id)
 			let temp = data.slice(0,index)
 			temp = temp.concat(data.slice(index+1))
-			axios.post("https://ozbookapi.herokuapp.com/delete", {_id: id}).then(res=>{
+			axios.post("/delete", {_id: id}).then(res=>{
 				if(res.data==="Done") return this.setState({data: temp})
 				if(!this.state.data[0]) return this.setState({altHomeTitle: "No Books To Show"})
 			})

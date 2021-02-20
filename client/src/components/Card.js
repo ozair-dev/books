@@ -13,7 +13,7 @@ export default function Card(props){
 			<p className="card_content"><strong>Publisher: </strong>{props.data.publisher}</p>
 			<Link to={{pathname: "/update", state: props.data}} className="edit_button" >Edit</Link>
 			<br/>
-			<button className ="delete_button" onClick= {props.onClick} >Delete</button>
+			<button className ="delete_button" onClick= {props.onClick} ></button>
 		</div>
 		)
 }
